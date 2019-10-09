@@ -1,0 +1,7 @@
+\BOOKMARK [1][-]{section.1}{Four\040LINES\040OF\040DEFENSE\040against\040BUG}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{0th:\040when\040reading}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{1st:\040when\040coding}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{2nd:\040g++\040warning}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{3rd:\040static\040debug}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{4th:\040gdb\040&\040sample\040testing}{section.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.5.1}{以下情况造数据测试:}{subsection.1.5}% 7
