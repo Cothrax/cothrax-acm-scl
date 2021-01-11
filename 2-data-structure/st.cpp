@@ -1,11 +1,11 @@
 /*:
-  st表rmq
+  st表 静态RMQ O(1) 查询
   var:  st[i][j]        : [i, i+2^j-1] rmq
   func: init()          : 预处理O(NlogN)
         query(l, r)     : 查询rmq [l, r]
   note: 下标[0, n-1]亦可
  */
-const int N = 1e6, lgN = 20;
+const int N = 1e6+10, lgN = 20;
 struct ST
 {
     int st[N][lgN];

@@ -53,7 +53,7 @@ namespace st
             if(k < n) st[i][j] = Min(st[i][j], st[k][j-1]);
         }
     }
-    
+
     int lca(int u, int v)
     {
         int l = dfn[u], r = dfn[v]; if(l > r) swap(l, r);

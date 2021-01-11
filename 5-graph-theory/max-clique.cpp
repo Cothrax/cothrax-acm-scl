@@ -1,4 +1,51 @@
 /*
+  无向图最大团 Bron–Kerbosch算法
+ */
+
+namespace BK
+{
+	const int maxn = 2e3;
+	int g[maxn][maxn], all[maxn][maxn], some[maxn][maxn], none[maxn][maxn], pi[maxn];
+	int n, ans, lim;
+	void dfs(int d, int na, int ns, int nn){
+ 
+		if(ans == lim) return;
+		if(!ns && !nn){
+         
+			if(na > ans){
+             
+				ans = na;
+				for(int i = 1; i <= ans; ++i) pi[i] = all[d][i];
+			}
+			return;
+		}
+		int u = some[d][1];
+		for(int i = 1; i <= ns; ++i){
+ 
+			int v = some[d][i];
+			if(g[u][v]) continue;
+			for(int j = 1; j <= na; ++j) all[d + 1][j] = all[d][j];
+			all[d + 1][na + 1] = v;
+			int tns = 0, tnn = 0;
+			for(int j = 1; j <= ns; ++j) if(g[v][some[d][j]]) some[d + 1][++tns] = some[d][j];
+			for(int j = 1; j <= nn; ++j) if(g[v][none[d][j]]) none[d + 1][++tnn] = none[d][j];
+			dfs(d + 1, na + 1, tns, tnn);
+			some[d][i] = 0, none[d][++nn] = v;
+		}
+	}
+ 
+	int BK(int m){
+
+		n = m;
+		ans = 0;
+		for(int i = 1; i <= n; ++i) some[1][i] = i;
+		dfs(1, 0, n, 0);
+		return ans;
+	}
+
+}
+
+/*
   无向图最大团 (折半枚举)
   var:  n               : 顶点数
         g[u]            : 点u的相邻点的bitmask

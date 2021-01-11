@@ -71,7 +71,7 @@ struct Splay
         }
     
     void insert(int w)
-        {n
+        {
             int l = pred(rt, w), r = succ(rt, w);
             splay(l, rt);
             splay(r, R(l));

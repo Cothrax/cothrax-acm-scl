@@ -4,7 +4,7 @@
         a[N]            : data
         b[i]            : 最高位i的基向量
   func: gauss(int n)    : 高斯消元(a[]的大小)
-        intersect       : 线性基求交
+        intersect       : 线性基求交 (a交b->ans)
   note: https://blog.sengxian.com/algorithms/linear-basis
  */
 const int N = 100010, K = 63;

@@ -44,7 +44,7 @@ struct SAM
                 else
                 {
                     int clone = new_node(len[p] + 1);
-                    rep(j, 0, 25) ch[clone][j] = ch[q][j];
+                    rep(j, 0, CSet-1) ch[clone][j] = ch[q][j];
                     par[clone] = par[q];
 
                     for(; p != -1 && ch[p][c] == q; p = par[p])

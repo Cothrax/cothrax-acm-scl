@@ -2,7 +2,7 @@
   树状数组(例为前缀和)
   note: 常数优化可以考虑把<N换成<=n
  */
-
+#define lowbit(x) (x)&(-x)
 struct BIT
 {
     ll bit[N];

@@ -73,12 +73,12 @@ struct SAM
                     printf("\t -%d-> %d\n", (int)c, ch[i][c]);
             }
         }
-    ll calc()
-        {
-            ll ret = 0;
-            rep(i, 1, sz-1) ret += len[i] - len[par[i]];
-            return ret;
-        }
+    // ll calc()
+    //     {
+    //         ll ret = 0;
+    //         rep(i, 1, sz-1) ret += len[i] - len[par[i]];
+    //         return ret;
+    //     }
 
 } sam;
 

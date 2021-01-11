@@ -12,6 +12,7 @@
         find(rk)        : return 排名rk的元素值
         rank(k)         : return k的排名
         pred/succ(k)    : return k的前驱/后继
+		get(rt, k)		: 查找k，return 节点编号，没找到返回0
  */
 
 #define L(x) ch[x][0]
@@ -23,6 +24,7 @@ struct Treap
     void upd(int x)
         {
             siz[x] = siz[L(x)] + siz[R(x)] + cnt[x];
+			// 维护这些是为了方便pred/succ
             min_w[x] = min(min(min_w[L(x)], min_w[R(x)]), val[x]);
             max_w[x] = max(max(max_w[L(x)], max_w[R(x)]), val[x]);
         }
@@ -73,12 +75,15 @@ struct Treap
             else if(val[x] == k) return siz[L(x)] + 1;
             else return siz[L(x)] + cnt[x] + __rank(R(x), k);
         }
+
+	// 找的是真前驱（严格小于）
     int __pred(int x, int k)
         {
             if(val[x] >= k) return __pred(L(x), k);
             else if(min_w[R(x)] >= k) return val[x];
             else return __pred(R(x), k);
         }
+	// 找的是真后继（严格大于）
     int __succ(int x, int k)
         {
             if(val[x] <= k) return __succ(R(x), k);
@@ -86,6 +91,15 @@ struct Treap
             else return __succ(L(x), k);
         }
 
+	// 找到k的节点编号，没有找到返回0
+	int get(int x, int k)
+		{
+			if(!x) return 0;
+			if(val[x] == k) return x;
+			else return get(ch[x][val[x] < k], k);
+		}
+
+	
     void insert(int k) { __insert(rt, k); }
     void del(int k) { __del(rt, k); }
     int find(int rk) { return __find(rt, rk); }

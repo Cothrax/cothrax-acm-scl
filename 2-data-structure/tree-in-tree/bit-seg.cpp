@@ -7,7 +7,7 @@
         push(x)             回收一个节点
         pop()               return 一个新节点
         
-        ins(&i, b, e, x, k  权值线段树 - x处单点插值
+        ins(&i, b, e, x, k)  权值线段树 - x处单点插值
         query(i, b, e, l, r)            - [l, r]区间查询
         ask(a, b, c, d)     二维数点 bit中[a, b] 线段树中[c, d]
         modify(x, val, k)   单点修改, (x, val)位置+k

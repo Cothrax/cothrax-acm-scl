@@ -49,6 +49,7 @@ void floyd()
 }
 
 //路径输出的floyd; g[i][j]为i->j的第一个节点
+//初始 g[i][j] = j
 int f[N][N], g[N][N];
 void floyd()
 {  
